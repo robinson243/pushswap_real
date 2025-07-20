@@ -6,86 +6,102 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 19:09:16 by romukena          #+#    #+#             */
-/*   Updated: 2025/07/20 19:09:44 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/21 00:55:34 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int		unleah(char **str, int size)
+static int	count_words(char *str, char separator)
 {
-	while (size--)
-		free(str[size]);
-	return (-1);
-}
+	int		count;
+	bool	inside_word;
 
-static int		count_words(const char *str, char charset)
-{
-	int	i;
-	int	words;
-
-	words = 0;
-	i = 0;
-	while (str[i] != '\0')
+	count = 0;
+	while (*str)
 	{
-		if ((str[i + 1] == charset || str[i + 1] == '\0') == 1
-				&& (str[i] == charset || str[i] == '\0') == 0)
-			words++;
-		i++;
-	}
-	return (words);
-}
-
-static void		write_word(char *dest, const char *from, char charset)
-{
-	int	i;
-
-	i = 0;
-	while ((from[i] == charset || from[i] == '\0') == 0)
-	{
-		dest[i] = from[i];
-		i++;
-	}
-	dest[i] = '\0';
-}
-
-static int		write_split(char **split, const char *str, char charset)
-{
-	int		i;
-	int		j;
-	int		word;
-
-	word = 0;
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if ((str[i] == charset || str[i] == '\0') == 1)
-			i++;
-		else
+		inside_word = false;
+		while (*str == separator && *str)
+			++str;
+		while (*str != separator && *str)
 		{
-			j = 0;
-			while ((str[i + j] == charset || str[i + j] == '\0') == 0)
-				j++;
-			if ((split[word] = (char*)malloc(sizeof(char) * (j + 1))) == NULL)
-				return (unleah(split, word - 1));
-			write_word(split[word], str + i, charset);
-			i += j;
-			word++;
+			if (!inside_word)
+			{
+				++count;
+				inside_word = true;
+			}
+			++str;
 		}
 	}
-	return (0);
+	return (count);
 }
 
-char			**ft_split(const char *str, char c)
+/*
+ * I exploit static variables
+ * which are basically 
+ * "Global private variables"
+ * i can access it only via the get_next_word function
+*/
+static char	*get_next_word(char *str, char separator)
 {
-	char	**res;
-	int		words;
+	static int	cursor = 0;
+	char		*next_str;
+	int			len;
+	int			i;
 
-	words = count_words(str, c);
-	if ((res = (char**)malloc(sizeof(char*) * (words + 1))) == NULL)
+	len = 0;
+	i = 0;
+	while (str[cursor] == separator)
+		++cursor;
+	while ((str[cursor + len] != separator) && str[cursor + len])
+		++len;
+	next_str = malloc((size_t)len * sizeof(char) + 1);
+	if (NULL == next_str)
 		return (NULL);
-	res[words] = 0;
-	if (write_split(res, str, c) == -1)
+	while ((str[cursor] != separator) && str[cursor])
+		next_str[i++] = str[cursor++];
+	next_str[i] = '\0';
+	return (next_str);
+}
+
+/*
+ * I recreate an argv in the HEAP
+ *
+ * +2 because i want to allocate space
+ * for the "\0" Placeholder and the final NULL
+ *
+ * vector_strings-->[p0]-> "\0" Placeholder to mimic argv
+ * 				 |->[p1]->"Hello"
+ * 				 |->[p2]->"how"
+ * 				 |->[p3]->"Are"
+ * 				 |->[..]->"..""
+ * 				 |->[NULL]
+*/
+char	**ft_split(char *str, char separator)
+{
+	int		words_number;
+	char	**vector_strings;
+	int		i;
+
+	i = 0;
+	words_number = count_words(str, separator);
+	if (!words_number)
+		exit(1);
+	vector_strings = malloc(sizeof(char *) * (size_t)(words_number + 2));
+	if (NULL == vector_strings)
 		return (NULL);
-	return (res);
+	while (words_number-- >= 0)
+	{
+		if (0 == i)
+		{
+			vector_strings[i] = malloc(sizeof(char));
+			if (NULL == vector_strings[i])
+				return (NULL);
+			vector_strings[i++][0] = '\0';
+			continue ;
+		}
+		vector_strings[i++] = get_next_word(str, separator);
+	}
+	vector_strings[i] = NULL;
+	return (vector_strings);
 }

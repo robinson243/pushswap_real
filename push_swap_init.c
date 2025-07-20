@@ -6,7 +6,7 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 12:02:48 by utente            #+#    #+#             */
-/*   Updated: 2025/07/20 21:32:58 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/21 00:48:25 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,14 @@ void	set_current_position(t_mylist *stack)
  *   | "The Smallest-bigger value" |
  *
  *  if no node is Bigger, best_match is the Smallest node.
- *  TLDR 
+ *  TLDR
  *  With this function every node in b gets its target node in a
-*/
-static void	set_target_node(t_mylist *a,
-							t_mylist *b)
+ */
+static void	set_target_node(t_mylist *a, t_mylist *b)
 {
 	t_mylist	*current_a;
 	t_mylist	*target_node;
-	long			best_match_index;
+	long		best_match_index;
 
 	while (b)
 	{
@@ -75,7 +74,7 @@ static void	set_target_node(t_mylist *a,
  * from b -> a
  * The price checks for the relative positions in the stack
  * for every node, setting the respective price
-*/
+ */
 void	set_price(t_mylist *a, t_mylist *b)
 {
 	int	len_a;
@@ -99,10 +98,10 @@ void	set_price(t_mylist *a, t_mylist *b)
 /*
  * Flag the cheapest node in the current
  * stacks configurations
-*/
+ */
 void	set_cheapest(t_mylist *b)
 {
-	long			best_match_value;
+	long		best_match_value;
 	t_mylist	*best_match_node;
 
 	if (NULL == b)
@@ -126,7 +125,7 @@ void	set_cheapest(t_mylist *b)
  * 		~Target node, the b node to make emerge
  * 		~Price for every configuration
  * 		~Cheapest in the current configuration
-*/
+ */
 void	init_nodes(t_mylist *a, t_mylist *b)
 {
 	set_current_position(a);

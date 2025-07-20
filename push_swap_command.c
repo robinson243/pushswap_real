@@ -6,40 +6,33 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:13:30 by romukena          #+#    #+#             */
-/*   Updated: 2025/07/20 21:32:12 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/21 00:48:04 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate_both(t_mylist **a,
-						t_mylist **b,
-						t_mylist *cheapest_node)
+static void	rotate_both(t_mylist **a, t_mylist **b, t_mylist *cheapest_node)
 {
-	while (*a != cheapest_node->target_node
-		&& *b != cheapest_node)
+	while (*a != cheapest_node->target_node && *b != cheapest_node)
 		rr(a, b, false);
 	set_current_position(*a);
 	set_current_position(*b);
 }
 
-static void	reverse_rotate_both(t_mylist **a,
-								t_mylist **b,
-								t_mylist *cheapest_node)
+static void	reverse_rotate_both(t_mylist **a, t_mylist **b,
+		t_mylist *cheapest_node)
 {
-	while (*a != cheapest_node->target_node
-		&& *b != cheapest_node)
+	while (*a != cheapest_node->target_node && *b != cheapest_node)
 		rrr(a, b, false);
 	set_current_position(*a);
 	set_current_position(*b);
 }
 
 /*
- * Conclude the rotation of the stacks 
-*/
-void	finish_rotation(t_mylist **stack,
-							t_mylist *top_node,
-							char stack_name)
+ * Conclude the rotation of the stacks
+ */
+void	finish_rotation(t_mylist **stack, t_mylist *top_node, char stack_name)
 {
 	while (*stack != top_node)
 	{
@@ -56,7 +49,7 @@ void	finish_rotation(t_mylist **stack,
 				rb(stack, false);
 			else
 				rrb(stack, false);
-		}	
+		}
 	}
 }
 
@@ -65,14 +58,13 @@ void	finish_rotation(t_mylist **stack,
  * with the metadata available in the node
  * 1)Make the target nodes emerge
  * 2)push in A
-*/
+ */
 static void	move_nodes(t_mylist **a, t_mylist **b)
 {
 	t_mylist	*cheapest_node;
 
 	cheapest_node = return_cheapest(*b);
-	if (cheapest_node->above_median
-		&& cheapest_node->target_node->above_median)
+	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
 		rotate_both(a, b, cheapest_node);
 	else if (!(cheapest_node->above_median)
 		&& !(cheapest_node->target_node->above_median))
@@ -83,14 +75,14 @@ static void	move_nodes(t_mylist **a, t_mylist **b)
 }
 
 /*
- * ~Push all nodes in B 
+ * ~Push all nodes in B
  * ~For every configuration choose the "cheapest_node"
  * ~Push everything back in A in order
-*/
+ */
 void	push_swap(t_mylist **a, t_mylist **b)
 {
 	t_mylist	*smallest;
-	int				len_a;
+	int			len_a;
 
 	len_a = countlist(*a);
 	if (len_a == 5)

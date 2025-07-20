@@ -6,7 +6,7 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:03:53 by romukena          #+#    #+#             */
-/*   Updated: 2025/07/20 21:30:09 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/20 23:46:23 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,11 @@ void	free_list(t_mylist **lst)
 
 int	error_syntax(char *str_nbr)
 {
-	if (!(*str_nbr == '+'
-			|| *str_nbr == '-'
-			|| (*str_nbr >= '0' && *str_nbr <= '9')))
+	if (!(*str_nbr == '+' || *str_nbr == '-' || (*str_nbr >= '0'
+				&& *str_nbr <= '9')))
 		return (1);
-	if ((*str_nbr == '+'
-			|| *str_nbr == '-')
-		&& !(str_nbr[1] >= '0' && str_nbr[1] <= '9'))
+	if ((*str_nbr == '+' || *str_nbr == '-') && !(str_nbr[1] >= '0'
+			&& str_nbr[1] <= '9'))
 		return (1);
 	while (*++str_nbr)
 	{
@@ -66,8 +64,8 @@ void	error_free(t_mylist **a, char **argv, bool flag_argc_2)
 	free_list(a);
 	if (flag_argc_2)
 		free_tableau(argv);
-	(void)write(2, "Error\n", 6);
-	exit(1);
+	if (write(2, "Error\n", 6))
+		exit(1);
 }
 
 int	error_repetition(t_mylist *a, int nbr)

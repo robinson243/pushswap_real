@@ -6,7 +6,7 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 09:49:59 by utente            #+#    #+#             */
-/*   Updated: 2025/07/20 20:36:38 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/21 00:51:52 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ t_mylist	*find_last_node(t_mylist *head)
 }
 
 /*
- * Search for the last node and append 
+ * Search for the last node and append
  * 🚨 Pay attention if the stack empty?
-*/
+ */
 void	append_node(t_mylist **stack, int nbr)
 {
 	t_mylist	*node;
@@ -52,10 +52,10 @@ void	append_node(t_mylist **stack, int nbr)
 
 /*
  * Find the smallest value node
-*/
+ */
 t_mylist	*find_smallest(t_mylist *stack)
 {
-	long			smallest;
+	long		smallest;
 	t_mylist	*smallest_node;
 
 	if (NULL == stack)
@@ -74,9 +74,9 @@ t_mylist	*find_smallest(t_mylist *stack)
 }
 
 /*
- * Return the cheapest node 
+ * Return the cheapest node
  * that is already flagged
-*/
+ */
 t_mylist	*return_cheapest(t_mylist *stack)
 {
 	if (NULL == stack)

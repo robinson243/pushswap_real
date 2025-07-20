@@ -6,7 +6,7 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:13:30 by romukena          #+#    #+#             */
-/*   Updated: 2025/07/20 20:14:03 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/21 01:10:28 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
  * Push a node to the top from src to dest
  * 🚨 attention If stack empty (i.e. NULL)
-*/
+ */
 static void	push(t_mylist **dest, t_mylist **src)
 {
 	t_mylist	*node_to_push;
@@ -44,12 +44,12 @@ void	pa(t_mylist **a, t_mylist **b, bool checker)
 {
 	push(a, b);
 	if (!checker)
-		write(1, "pa\n", 3);
+		ft_putstr("pa\n");
 }
 
 void	pb(t_mylist **b, t_mylist **a, bool checker)
 {
 	push(b, a);
 	if (!checker)
-		write(1, "pb\n", 3);
+		ft_putstr("pb\n");
 }

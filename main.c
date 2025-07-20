@@ -6,7 +6,7 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 19:03:44 by romukena          #+#    #+#             */
-/*   Updated: 2025/07/20 21:31:32 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/21 00:47:26 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int ac, char **av)
 {
 	t_mylist	*a;
 	t_mylist	*b;
-	
+
 	a = NULL;
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))

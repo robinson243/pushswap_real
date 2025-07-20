@@ -6,7 +6,7 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:33:52 by romukena          #+#    #+#             */
-/*   Updated: 2025/07/20 21:33:29 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/21 01:11:45 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 /*
  * Top node to bottom position
-*/
+ */
 static void	rotate(t_mylist **stack)
 {
 	t_mylist	*last_node;
-	int				len;
+	int			len;
 
 	len = countlist(*stack);
 	if (NULL == stack || NULL == *stack || 1 == len)
@@ -29,20 +29,20 @@ static void	rotate(t_mylist **stack)
 	(*stack)->prev = NULL;
 	last_node->next->prev = last_node;
 	last_node->next->next = NULL;
-}	
+}
 
 void	ra(t_mylist **a, bool checker)
 {
 	rotate(a);
 	if (!checker)
-		write(1, "ra\n", 3);
+		ft_putstr("ra\n");
 }
 
 void	rb(t_mylist **b, bool checker)
 {
 	rotate(b);
 	if (!checker)
-		write(1, "rb\n", 3);
+		ft_putstr("rb\n");
 }
 
 void	rr(t_mylist **a, t_mylist **b, bool checker)
@@ -50,5 +50,5 @@ void	rr(t_mylist **a, t_mylist **b, bool checker)
 	rotate(a);
 	rotate(b);
 	if (!checker)
-		write(1, "rr\n", 3);
+		ft_putstr("rr\n");
 }
