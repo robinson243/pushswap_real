@@ -6,7 +6,7 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 21:09:54 by romukena          #+#    #+#             */
-/*   Updated: 2025/07/20 20:54:11 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/20 21:34:36 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	free_tableau(char **tab);
 void	free_list(t_mylist **lst);
 int				error_repetition(t_mylist *a, int nbr);
 int				error_syntax(char *str_nbr);
+void	error_free(t_mylist **a, char **argv, bool flag_argc_2);
 
 /*Stack creation */
 void			stack_init(t_mylist **a, char **argv, bool flag_argc_2);

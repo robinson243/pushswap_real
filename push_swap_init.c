@@ -6,7 +6,7 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 12:02:48 by utente            #+#    #+#             */
-/*   Updated: 2025/07/20 20:29:11 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/20 21:32:58 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	set_current_position(t_mylist *stack)
 	i = 0;
 	if (NULL == stack)
 		return ;
-	centerline = stack_len(stack) / 2;
+	centerline = countlist(stack) / 2;
 	while (stack)
 	{
 		stack->current_position = i;
@@ -81,8 +81,8 @@ void	set_price(t_mylist *a, t_mylist *b)
 	int	len_a;
 	int	len_b;
 
-	len_a = stack_len(a);
-	len_b = stack_len(b);
+	len_a = countlist(a);
+	len_b = countlist(b);
 	while (b)
 	{
 		b->push_price = b->current_position;

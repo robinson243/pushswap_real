@@ -6,7 +6,7 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:03:53 by romukena          #+#    #+#             */
-/*   Updated: 2025/07/20 20:08:26 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/20 21:30:09 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ int	error_syntax(char *str_nbr)
 
 void	error_free(t_mylist **a, char **argv, bool flag_argc_2)
 {
-	free_stack(a);
+	free_list(a);
 	if (flag_argc_2)
-		free_matrix(argv);
-	write(2, "Error\n", 6);
+		free_tableau(argv);
+	(void)write(2, "Error\n", 6);
 	exit(1);
 }
 

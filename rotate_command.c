@@ -6,7 +6,7 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:33:52 by romukena          #+#    #+#             */
-/*   Updated: 2025/07/20 20:34:18 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/20 21:33:29 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	rotate(t_mylist **stack)
 	t_mylist	*last_node;
 	int				len;
 
-	len = stack_len(*stack);
+	len = countlist(*stack);
 	if (NULL == stack || NULL == *stack || 1 == len)
 		return ;
 	last_node = find_last_node(*stack);

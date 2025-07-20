@@ -6,7 +6,7 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:13:30 by romukena          #+#    #+#             */
-/*   Updated: 2025/07/20 20:24:40 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/20 21:32:12 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	push_swap(t_mylist **a, t_mylist **b)
 	t_mylist	*smallest;
 	int				len_a;
 
-	len_a = stack_len(*a);
+	len_a = countlist(*a);
 	if (len_a == 5)
 		handle_five(a, b);
 	else
@@ -100,7 +100,7 @@ void	push_swap(t_mylist **a, t_mylist **b)
 		while (len_a-- > 3)
 			pb(b, a, false);
 	}
-	tiny_sort(a);
+	sort_three(a);
 	while (*b)
 	{
 		init_nodes(*a, *b);

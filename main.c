@@ -6,7 +6,7 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 19:03:44 by romukena          #+#    #+#             */
-/*   Updated: 2025/07/20 20:11:47 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/20 21:31:32 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int ac, char **av)
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
 	stack_init(&a, av + 1, ac == 2);
-	if (!stack_sorted(a))
+	if (!sorted_list(a))
 	{
 		if (countlist(a) == 2)
 			sa(&a, false);

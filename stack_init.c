@@ -6,7 +6,7 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 19:25:47 by romukena          #+#    #+#             */
-/*   Updated: 2025/07/20 19:29:11 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/20 21:33:41 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,5 @@ void	stack_init(t_mylist **a, char **argv, bool flag_argc_2)
 		++i;
 	}
 	if (flag_argc_2)
-		free_matrix(argv);
+		free(argv);
 }

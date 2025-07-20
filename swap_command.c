@@ -6,7 +6,7 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:37:36 by romukena          #+#    #+#             */
-/*   Updated: 2025/07/20 20:38:18 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/20 21:33:52 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	swap(t_mylist **head)
 {
 	int	len;
 
-	len = stack_len(*head);
+	len = countlist(*head);
 	if (NULL == *head || NULL == head || 1 == len)
 		return ;
 	*head = (*head)->next;
