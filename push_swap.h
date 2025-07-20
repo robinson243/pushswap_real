@@ -6,7 +6,7 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 21:09:54 by romukena          #+#    #+#             */
-/*   Updated: 2025/07/20 20:51:16 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/20 20:54:11 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,23 @@ t_mylist	*return_cheapest(t_mylist *stack);
 bool	sorted_list(t_mylist *stack);
 int				countlist(t_mylist *stack);
 void			finish_rotation(t_mylist **s, t_mylist *n, char c);
+
+//*** Algorithms ***
+void			sort_three(t_mylist **a);
+void			handle_five(t_mylist **a, t_mylist **b);
+void			push_swap(t_mylist **a, t_mylist **b);
+
+//*** Commands ***
+void			sa(t_mylist **a, bool checker);
+void			sb(t_mylist **b, bool checker);
+void			ss(t_mylist **a, t_mylist **b, bool checker);
+void			ra(t_mylist **a, bool checker);
+void			rb(t_mylist **b, bool checker);
+void			rr(t_mylist **a, t_mylist **b, bool checker);
+void			rra(t_mylist **a, bool checker);
+void			rrb(t_mylist **b, bool checker);
+void			rrr(t_mylist **a, t_mylist **b, bool checker);
+void			pa(t_mylist **a, t_mylist **b, bool checker);
+void			pb(t_mylist **b, t_mylist **a, bool checker);
 
 #endif
