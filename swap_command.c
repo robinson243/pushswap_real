@@ -6,7 +6,7 @@
 /*   By: romukena <romukena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:37:36 by romukena          #+#    #+#             */
-/*   Updated: 2025/07/21 00:52:09 by romukena         ###   ########.fr       */
+/*   Updated: 2025/07/21 01:19:43 by romukena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ void	sa(t_mylist	**a, bool checker)
 {
 	swap(a);
 	if (!checker)
-		ft_putstr("sa");
+		ft_putstr("sa\n");
 }
 
 void	sb(t_mylist **b, bool checker)
 {
 	swap(b);
 	if (!checker)
-		ft_putstr("sb");
+		ft_putstr("sb\n");
 }
 
 void	ss(t_mylist **a, t_mylist **b, bool checker)
@@ -51,5 +51,5 @@ void	ss(t_mylist **a, t_mylist **b, bool checker)
 	swap(a);
 	swap(b);
 	if (!checker)
-		ft_putstr("ss");
+		ft_putstr("ss\n");
 }
